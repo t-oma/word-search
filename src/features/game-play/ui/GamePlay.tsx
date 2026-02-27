@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
 
-import { FoundWords } from "~/entities/game";
 import { useStatsStore } from "~/entities/stats";
 import { useGameSettings } from "~/features/game-settings";
 import { useGenerator } from "~/features/grid-generator";
@@ -10,6 +9,7 @@ import { useTimer } from "~/shared/hooks";
 import { GameTimer, SidePanel } from "~/widgets";
 import { useHint } from "../lib/useHint";
 import { useGamePlayStore } from "../model/game-store";
+import { FoundWords } from "./FoundWords";
 import { GameHelp } from "./GameHelp";
 import { GameHint } from "./GameHint";
 import { GameScreen } from "./GameScreen";
@@ -22,7 +22,7 @@ type GamePlayProps = {
 };
 
 export function GamePlay({ game }: Readonly<GamePlayProps>) {
-  const gameRegistered = useRef(false);
+  const gameRegisteredRef = useRef(false);
 
   const foundWords = useGamePlayStore((state) => state.foundWords);
   const selectedPositions = useGamePlayStore(
@@ -65,14 +65,14 @@ export function GamePlay({ game }: Readonly<GamePlayProps>) {
       title: game.title,
       date: new Date().toLocaleString(),
     });
-    gameRegistered.current = true;
+    gameRegisteredRef.current = true;
   }, [registerGame, foundWords, timer, difficulty, words, game.title]);
 
   useEffect(() => {
     if (gameEnded) {
       timer.pause();
 
-      if (gameRegistered.current) return;
+      if (gameRegisteredRef.current) return;
       handleGameOver();
     } else {
       timer.start();
