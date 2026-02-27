@@ -1,5 +1,5 @@
 === SUMMARY ===
-├─ MIT: 13
+├─ MIT: 12
 ├─ Unlicense: 1
 └─ ISC: 1
 
@@ -14,12 +14,6 @@
 │  ├─ repository: https://github.com/remix-run/react-router
 │  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/@react-router/serve
 │  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/@react-router/serve/LICENSE.md
-├─ bite-consent@0.0.9
-│  ├─ licenses: MIT
-│  ├─ repository: https://github.com/Seishin/bite-consent
-│  ├─ publisher: Atanas Dimitrov
-│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/bite-consent
-│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/bite-consent/LICENSE
 ├─ clsx@2.1.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/lukeed/clsx
