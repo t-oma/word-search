@@ -6,8 +6,11 @@ import tseslint from "typescript-eslint";
 
 export default defineConfig([
   {
+    ignores: ["docs/.vitepress/**", ".vitepress/**"]
+  },
+  {
     files: ["**/*.ts", "**/*.tsx"],
-    ignores: [".react-router/**", ".git/**", ".husky/**", "build/**", "node_modules/**", "docs/.vitepress/**", ".vitepress/**", "docs/.vitepress/cache/**"],
+    ignores: [".react-router/**", ".git/**", ".husky/**", "build/**", "node_modules/**"],
 
     // Extend recommended rule sets from:
     // 1. ESLint JS's recommended rules
