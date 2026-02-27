@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
 
-import { generateWords } from "~/features/game-play";
-import { generateGridLetters } from "./generator";
+import { generateGridLetters, generateWords } from "./generator";
 import type { Difficulty, WordsCategory } from "~/shared/types";
+
+const WORD_COUNT_RANGES = {
+  easy: { min: 3, max: 4 },
+  medium: { min: 5, max: 6 },
+  hard: { min: 6, max: 7 },
+} as const;
+const WORD_LENGTH_RANGES = {
+  easy: { min: 3, max: 5 },
+  medium: { min: 4, max: 7 },
+  hard: { min: 5, max: 9 },
+} as const;
 
 type UseGeneratorProps = {
   size: number;
@@ -15,6 +25,19 @@ type UseGeneratorReturn = {
   letters: string[][];
 };
 
+/**
+ * Generate array filled with words generated from words library. Words are placed at random positions. Remaining positions are filled with random letters.
+ * Words can intersect.
+ *
+ * Uses {@link generateWords} to generate words.
+ *
+ * @param {UseGeneratorProps} options options.
+ * @param {UseGeneratorProps['size']} options.size size of the grid.
+ * @param {UseGeneratorProps['difficulty']} options.difficulty difficulty of the puzzle.
+ * @param {UseGeneratorProps['category']} options.category category of the words.
+ *
+ * @returns {UseGeneratorReturn} generated grid letters.
+ */
 function useGenerator({
   size,
   difficulty,
@@ -26,7 +49,16 @@ function useGenerator({
 
   useEffect(() => {
     // eslint-disable-next-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
-    setWords(generateWords(size, difficulty, category));
+    setWords(
+      generateWords({
+        difficulty,
+        category,
+        ranges: {
+          count: WORD_COUNT_RANGES[difficulty],
+          length: WORD_LENGTH_RANGES[difficulty],
+        },
+      })
+    );
   }, [size, difficulty, category]);
 
   useEffect(() => {
