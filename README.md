@@ -59,6 +59,10 @@ pnpm start
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Privacy
+
+This project uses cookies for analytics and marketing purposes. For more information, see the [PRIVACY_POLICY](PRIVACY_POLICY.md) file.
+
 ---
 
 Built with ❤️ using React Router

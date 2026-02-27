@@ -1,5 +1,5 @@
 === SUMMARY ===
-├─ MIT: 11
+├─ MIT: 13
 ├─ Unlicense: 1
 └─ ISC: 1
 
@@ -59,6 +59,13 @@
 │  ├─ url: Bill
 │  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-hook-form
 │  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-hook-form/LICENSE
+├─ react-markdown@10.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remarkjs/react-markdown
+│  ├─ publisher: Espen Hovlandsdal
+│  ├─ email: espen@hovlandsdal.com
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-markdown
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-markdown/license
 ├─ react-router@7.9.3
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/remix-run/react-router
@@ -71,6 +78,14 @@
 │  ├─ repository: https://github.com/facebook/react
 │  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/react
 │  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/react/LICENSE
+├─ rehype-raw@7.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rehypejs/rehype-raw
+│  ├─ publisher: Titus Wormer
+│  ├─ email: tituswormer@gmail.com
+│  ├─ url: https://wooorm.com
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/rehype-raw
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/rehype-raw/license
 ├─ tailwind-merge@3.3.1
 │  ├─ licenses: MIT
 │  ├─ repository: https://github.com/dcastil/tailwind-merge
