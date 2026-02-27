@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import { analytics, marketing } from "~/shared/lib";
 import type { ReactNode } from "react";
 
 export interface CookiePreferences {
@@ -52,6 +53,20 @@ export function CookieConsent({ children }: CookieConsentProps) {
       setShowBanner(true); // eslint-disable-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     }
   }, []);
+
+  useEffect(() => {
+    if (preferences.analytics) {
+      analytics.enable();
+    } else {
+      analytics.disable();
+    }
+
+    if (preferences.marketing) {
+      marketing.enable();
+    } else {
+      marketing.disable();
+    }
+  }, [preferences.analytics, preferences.marketing]);
 
   const handleAcceptAll = () => {
     const newPrefs: CookiePreferences = {

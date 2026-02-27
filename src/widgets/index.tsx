@@ -7,4 +7,4 @@ export { GridWidth } from "./GridWidth";
 export { RootLayout } from "./RootLayout";
 export { SidePanel } from "./SidePanel";
 export type { AppModalProps } from "./AppModal";
-export { CookieConsent } from "./CookieConsent";
+export { CookieConsent, useCookieConsent } from "./CookieConsent";
