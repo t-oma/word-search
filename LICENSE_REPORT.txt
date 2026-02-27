@@ -1,0 +1,80 @@
+=== SUMMARY ===
+├─ MIT: 10
+├─ Unlicense: 1
+└─ ISC: 1
+
+=== DETAILS ===
+├─ @react-router/node@7.9.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remix-run/react-router
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/@react-router/node
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/@react-router/node/LICENSE.md
+├─ @react-router/serve@7.9.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remix-run/react-router
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/@react-router/serve
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/@react-router/serve/LICENSE.md
+├─ clsx@2.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lukeed/clsx
+│  ├─ publisher: Luke Edwards
+│  ├─ email: luke.edwards05@gmail.com
+│  ├─ url: https://lukeed.com
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/clsx
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/clsx/license
+├─ immer@10.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/immerjs/immer
+│  ├─ publisher: Michel Weststrate
+│  ├─ email: info@michel.codes
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/immer
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/immer/LICENSE
+├─ isbot@5.1.31
+│  ├─ licenses: Unlicense
+│  ├─ repository: https://github.com/omrilotan/isbot
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/isbot
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/isbot/LICENSE
+├─ lucide-react@0.544.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/lucide-icons/lucide
+│  ├─ publisher: Eric Fennis
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/lucide-react
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/lucide-react/LICENSE
+├─ react-dom@19.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-dom
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-dom/LICENSE
+├─ react-hook-form@7.65.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/react-hook-form/react-hook-form
+│  ├─ publisher: Beier
+│  ├─ email: bluebill1049@hotmail.com
+│  ├─ url: Bill
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-hook-form
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-hook-form/LICENSE
+├─ react-router@7.9.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/remix-run/react-router
+│  ├─ publisher: Remix Software
+│  ├─ email: hello@remix.run
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-router
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/react-router/LICENSE.md
+├─ react@19.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/react
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/react/LICENSE
+├─ tailwind-merge@3.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/dcastil/tailwind-merge
+│  ├─ publisher: Dany Castillo
+│  ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/tailwind-merge
+│  └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/tailwind-merge/LICENSE.md
+└─ zustand@5.0.8
+   ├─ licenses: MIT
+   ├─ repository: https://github.com/pmndrs/zustand
+   ├─ publisher: Paul Henschel
+   ├─ path: /Users/artemlevchenko/Code/COP/word-search/node_modules/zustand
+   └─ licenseFile: /Users/artemlevchenko/Code/COP/word-search/node_modules/zustand/LICENSE
+

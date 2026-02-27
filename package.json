@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
+    "licenses-report": "echo \"=== SUMMARY ===\" > LICENSE_REPORT.txt && license-checker --production --summary >> LICENSE_REPORT.txt && echo \"=== DETAILS ===\" >> LICENSE_REPORT.txt && license-checker --production >> LICENSE_REPORT.txt",
     "prepare": "husky"
   },
   "dependencies": {
@@ -39,6 +40,7 @@
     "eslint": "^9.36.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "husky": "^9.1.7",
+    "license-checker": "^25.0.1",
     "lint-staged": "^16.2.3",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
