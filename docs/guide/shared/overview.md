@@ -19,15 +19,4 @@ shared/
 - [Hooks](./hooks) - Custom React hooks
 - [Libraries](./lib) - Analytics and marketing integrations
 - [Types](./types) - TypeScript type definitions
-- [Utilities](./utils) - Utility functions
-
-## Usage
-
-Import from `~/shared/` alias:
-
-```typescript
-import { useTimer } from "~/shared/hooks/useTimer";
-import { trackEvent } from "~/shared/lib/analytics";
-import { cn } from "~/shared/utils/cn";
-import type { Direction, Position } from "~/shared/types";
-```
+- [Utilities](./utils/cn) - Utility functions
