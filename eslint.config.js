@@ -8,7 +8,7 @@ import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([{
-  ignores: ["docs/.vitepress/**", ".vitepress/**"]
+  ignores: ["docs/.vitepress/**", ".vitepress/**", "node_modules/**", "build/**", ".storybook/**"],
 }, {
   files: ["**/*.ts", "**/*.tsx"],
   ignores: [".react-router/**", ".git/**", ".husky/**", "build/**", "node_modules/**"],
