@@ -98,6 +98,20 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              text: "Game Play",
+              link: "/api/features/game-play/",
+              items: [
+                {
+                  text: "useHint()",
+                  link: "/api/features/game-play/useHint",
+                },
+                {
+                  text: "useGamePlayStore()",
+                  link: "/api/features/game-play/game-store",
+                },
+              ],
+            },
           ],
         },
         {
