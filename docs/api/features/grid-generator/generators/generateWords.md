@@ -2,7 +2,7 @@
 
 Generates an array of random words from the word library.
 
-## Parameters:
+## Parameters
 
 ```typescript
 type GenerateWordsProps = {
@@ -21,15 +21,47 @@ type GenerateWordsProps = {
 };
 ```
 
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>difficulty</code></td>
+      <td><code>Difficulty</code></td>
+      <td>Difficulty of the puzzle</td>
+    </tr>
+    <tr>
+      <td><code>category?</code></td>
+      <td><code>WordsCategory</code></td>
+      <td>Optional: force specific category</td>
+    </tr>
+    <tr>
+      <td><code>ranges.count</code></td>
+      <td><code>{ min: number; max: number; }</code></td>
+      <td>Range for words count</td>
+    </tr>
+    <tr>
+      <td><code>ranges.length</code></td>
+      <td><code>{ min: number; max: number; }</code></td>
+      <td>Range for words length</td>
+    </tr>
+  </tbody>
+</table>
+
 See [Difficulty](../../../shared/types#difficulty) and [WordsCategory](../../../shared/types#wordscategory) for more details.
 
-## Return:
+## Return
 
 ```typescript
 string[]
 ```
 
-## Usage:
+## Usage
 
 ```typescript
 import { generateWords } from "~/features/grid-generator";
@@ -44,7 +76,7 @@ const words = generateWords({
 });
 ```
 
-## Example Result:
+## Example Result
 
 ```typescript
 ["CAT", "DOG", "BIRD"];

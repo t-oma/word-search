@@ -2,7 +2,7 @@
 
 Attempts to place a single word at a given position and direction.
 
-## Parameters:
+## Parameters
 
 ```typescript
 type TryPlaceWordProps = {
@@ -14,9 +14,46 @@ type TryPlaceWordProps = {
 };
 ```
 
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>letters</code></td>
+      <td><code>string[][]</code></td>
+      <td>Grid of letters</td>
+    </tr>
+    <tr>
+      <td><code>word</code></td>
+      <td><code>string</code></td>
+      <td>Word to place</td>
+    </tr>
+    <tr>
+      <td><code>size</code></td>
+      <td><code>number</code></td>
+      <td>Grid size</td>
+    </tr>
+    <tr>
+      <td><code>pos</code></td>
+      <td><code>Position</code></td>
+      <td>Position to place the word at</td>
+    </tr>
+    <tr>
+      <td><code>dir</code></td>
+      <td><code>Direction</code></td>
+      <td>Direction to place the word</td>
+    </tr>
+  </tbody>
+</table>
+
 See [Direction](../../../shared/types#direction) and [Position](../../../shared/types#position) for more details.
 
-## Return:
+## Return
 
 ```typescript
 type TryPlaceWordReturn = {
@@ -26,9 +63,36 @@ type TryPlaceWordReturn = {
 };
 ```
 
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>succeeded</code></td>
+      <td><code>boolean</code></td>
+      <td>Whether the placement was successful</td>
+    </tr>
+    <tr>
+      <td><code>result</code></td>
+      <td><code>string[][]</code></td>
+      <td>Grid with the placed word</td>
+    </tr>
+    <tr>
+      <td><code>positions</code></td>
+      <td><code>Position[]</code></td>
+      <td>Positions of the placed word</td>
+    </tr>
+  </tbody>
+</table>
+
 See [Position](../../../shared/types#position) for more details.
 
-## Usage:
+## Usage
 
 ```typescript
 import { tryPlaceWord } from "~/features/grid-generator";
@@ -46,7 +110,7 @@ const result = tryPlaceWord({
 });
 ```
 
-## Result:
+## Result
 
 ```typescript
 {

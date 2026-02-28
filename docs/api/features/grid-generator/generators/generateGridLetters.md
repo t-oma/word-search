@@ -2,7 +2,7 @@
 
 Generates the grid letters with words placed and remaining cells filled with random letters.
 
-## Parameters:
+## Parameters
 
 ```typescript
 type GenerateGridLettersProps = {
@@ -11,7 +11,29 @@ type GenerateGridLettersProps = {
 };
 ```
 
-## Return:
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>size</code></td>
+      <td><code>number</code></td>
+      <td>Grid size</td>
+    </tr>
+    <tr>
+      <td><code>words</code></td>
+      <td><code>string[]</code></td>
+      <td>Words to place</td>
+    </tr>
+  </tbody>
+</table>
+
+## Return
 
 ```typescript
 type GenerateGridLettersReturn = {
@@ -20,7 +42,29 @@ type GenerateGridLettersReturn = {
 };
 ```
 
-## Usage:
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>letters</code></td>
+      <td><code>string[][]</code></td>
+      <td>2D grid of letters</td>
+    </tr>
+    <tr>
+      <td><code>placedWords</code></td>
+      <td><code>Set&lt;string&gt;</code></td>
+      <td>Set of placed words</td>
+    </tr>
+  </tbody>
+</table>
+
+## Usage
 
 ```typescript
 import { generateGridLetters } from "~/features/grid-generator";
@@ -31,7 +75,7 @@ const { letters, placedWords } = generateGridLetters({
 });
 ```
 
-## Result:
+## Result
 
 ```
 Generated Grid:

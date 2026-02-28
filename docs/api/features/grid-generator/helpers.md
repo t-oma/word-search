@@ -10,7 +10,7 @@ import { getRandomDirection } from "~/features/grid-generator";
 const dir = getRandomDirection();
 ```
 
-### Possible results:
+### Possible results
 
 ```typescript
 { dr: 0, dc: 1 }  - horizontal right
@@ -51,7 +51,7 @@ const letters = [
 fillRandomLetters(letters, 3);
 ```
 
-### Example Result:
+### Example Result
 
 ```typescript
 [

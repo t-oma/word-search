@@ -2,26 +2,75 @@
 
 A React hook that generates grid data automatically based on props.
 
-## Parameters:
+## Parameters
 
 ```typescript
 interface UseGeneratorProps {
-  size: number; // Grid size (e.g., 10 for 10x10)
-  difficulty: Difficulty; // "easy" | "medium" | "hard"
-  category?: WordsCategory; // Optional: force specific category
+  size: number;
+  difficulty: Difficulty;
+  category?: WordsCategory;
 }
 ```
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>size</code></td>
+      <td><code>number</code></td>
+      <td>Grid size (e.g., 10 for 10x10)</td>
+    </tr>
+    <tr>
+      <td><code>difficulty</code></td>
+      <td><code>Difficulty</code></td>
+      <td>Difficulty of the puzzle</td>
+    </tr>
+    <tr>
+      <td><code>category?</code></td>
+      <td><code>WordsCategory</code></td>
+      <td>Optional: force specific category</td>
+    </tr>
+  </tbody>
+</table>
 
 See [Difficulty](../../shared/types#difficulty) and [WordsCategory](../../shared/types#wordscategory) for more details.
 
-## Return:
+## Return
 
 ```typescript
 interface UseGeneratorReturn {
-  words: string[]; // Array of placed words
-  letters: string[][]; // 2D grid of letters
+  words: string[];
+  letters: string[][];
 }
 ```
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>words</code></td>
+      <td><code>string[]</code></td>
+      <td>Array of placed words</td>
+    </tr>
+    <tr>
+      <td><code>letters</code></td>
+      <td><code>string[][]</code></td>
+      <td>2D grid of letters</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Usage
 
