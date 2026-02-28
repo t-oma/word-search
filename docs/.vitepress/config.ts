@@ -2,6 +2,7 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: "/word-search/docs/",
   title: "Word Search",
   description:
     "A word search puzzle game built with React Router, TypeScript, and Tailwind CSS.",

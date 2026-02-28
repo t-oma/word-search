@@ -36,6 +36,14 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Build docs
+        run: pnpm docs:build
+
+      - name: Copy docs to build
+        run: |
+          mkdir -p build/client/docs
+          cp -r docs/.vitepress/dist/* build/client/docs/
+
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
