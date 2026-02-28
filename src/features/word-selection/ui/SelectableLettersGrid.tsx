@@ -1,8 +1,8 @@
 import { memo, useEffect } from "react";
 
-import { LettersGrid } from "~/entities/game";
 import { useGamePlayStore } from "~/features/game-play";
 import { useDraggableSelection } from "../lib/useDraggableSelection";
+import { LettersGrid } from "./LettersGrid";
 import type { Position } from "~/shared/types";
 
 type SelectableLettersGridProps = {

@@ -15,6 +15,18 @@ type TryPlaceWordReturn = {
   positions: Position[];
 };
 
+/**
+ * Tries to place a word at a given position and direction.
+ *
+ * @param {TryPlaceWordProps} options already placed letters.
+ * @param {TryPlaceWordProps['letters']} options.letters already placed letters.
+ * @param {TryPlaceWordProps['word']} options.word word to place.
+ * @param {TryPlaceWordProps['size']} options.size size of the grid
+ * @param {TryPlaceWordProps['pos']} options.pos position to place the word at
+ * @param {TryPlaceWordProps['dir']} options.dir direction to place the word
+ *
+ * @returns {TryPlaceWordReturn} result of the placement attempt.
+ */
 function tryPlaceWord({
   letters,
   word,
@@ -25,15 +37,19 @@ function tryPlaceWord({
   const wordLetters = word.toUpperCase().split("");
   const takenPositions: Position[] = [];
 
+  const logging = false;
+
   if (
     pos.row + dir.dr * word.length > size ||
     pos.col + dir.dc * word.length > size ||
     pos.row + dir.dr * word.length < 0 ||
     pos.col + dir.dc * word.length < 0
   ) {
-    console.error(
-      `FAILED: word ${word} at ${pos.row}, ${pos.col} exceeds bounds`
-    );
+    if (logging) {
+      console.error(
+        `FAILED: word ${word} at ${pos.row}, ${pos.col} exceeds bounds`
+      );
+    }
     return {
       succeeded: false,
       result: letters,
@@ -49,9 +65,11 @@ function tryPlaceWord({
       letters[row][col] &&
       letters[row][col] !== wordLetters[k]
     ) {
-      console.error(
-        `FAILED: letter conflict at ${row}, ${col}: existing '${letters[row][col]}' vs '${wordLetters[k]}'`
-      );
+      if (logging) {
+        console.error(
+          `FAILED: letter conflict at ${row}, ${col}: existing '${letters[row][col]}' vs '${wordLetters[k]}'`
+        );
+      }
       return {
         succeeded: false,
         result: letters,

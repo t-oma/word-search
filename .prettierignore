@@ -9,6 +9,8 @@ dist/
 # Generated files
 .react-router/
 .git/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
 
 # Config files that shouldn't be formatted
 *.config.js

@@ -1,4 +1,5 @@
 import { GamePlay } from "~/features/game-play";
+import { trackEvent, trackPageView } from "~/shared/lib";
 import { RootLayout } from "~/widgets";
 import type { Game } from "~/entities/game";
 
@@ -16,6 +17,9 @@ export default function GamePage({ game }: Readonly<GamePageProps>) {
       </RootLayout>
     );
   }
+
+  trackPageView();
+  trackEvent("game_start", "game", game.title);
 
   return (
     <RootLayout>

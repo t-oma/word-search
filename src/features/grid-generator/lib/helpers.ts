@@ -2,6 +2,11 @@ import { getRandomLetter } from "~/shared/utils";
 import type { Direction } from "~/shared/types";
 import type { DirectionCounts } from "../model/types";
 
+/**
+ * Returns a random direction.
+ *
+ * @returns random direction.
+ */
 function getRandomDirection(): Direction {
   const directions: Direction[] = [
     { dr: 0, dc: 1 }, // horizontal right
@@ -12,6 +17,12 @@ function getRandomDirection(): Direction {
   return directions[Math.floor(Math.random() * directions.length)];
 }
 
+/**
+ * Returns a weighted direction based on the direction counts.
+ *
+ * @param {DirectionCounts} directionCounts direction counts.
+ * @returns  weighted direction.
+ */
 function getWeightedDirection(directionCounts: DirectionCounts): Direction {
   const { horizontal, vertical, diagonal } = directionCounts;
   const weights = {
@@ -39,6 +50,12 @@ function getWeightedDirection(directionCounts: DirectionCounts): Direction {
   return directions[0].dir; // fallback
 }
 
+/**
+ * Fills the letters array with random letters.
+ *
+ * @param {string[][]} letters letters array.
+ * @param {number} size size of the grid.
+ */
 function fillRandomLetters(letters: string[][], size: number) {
   for (let i = 0; i < size; i++) {
     if (!letters[i]) {

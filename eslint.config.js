@@ -6,6 +6,9 @@ import tseslint from "typescript-eslint";
 
 export default defineConfig([
   {
+    ignores: ["docs/.vitepress/**", ".vitepress/**"]
+  },
+  {
     files: ["**/*.ts", "**/*.tsx"],
     ignores: [".react-router/**", ".git/**", ".husky/**", "build/**", "node_modules/**"],
 
