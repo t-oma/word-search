@@ -1,9 +1,11 @@
+/// <reference types="vitest/config" />
 import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-export default defineConfig({
-  base: "/word-search/",
+// More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
+export default defineConfig(({mode}) => ({ 
+  base: mode === "development" ? "/" : "/word-search/",
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
-});
+}));

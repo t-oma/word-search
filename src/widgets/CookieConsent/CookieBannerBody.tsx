@@ -1,14 +1,10 @@
-type CookieBannerProps = {
-  handleDecline: () => void;
-  handleAcceptAll: () => void;
-  handleShowSettings: () => void;
-};
+import type { CookieBodyProps } from "./CookieConsent";
 
-function CookieBanner({
+export function CookieBannerBody({
   handleDecline,
   handleAcceptAll,
   handleShowSettings,
-}: CookieBannerProps) {
+}: CookieBodyProps) {
   return (
     <div className="fixed right-0 bottom-0 left-0 z-50 border-t border-gray-200 bg-white p-4 shadow-lg">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
@@ -28,7 +24,7 @@ function CookieBanner({
             onClick={handleShowSettings}
             className="cursor-pointer rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200"
           >
-            Manage Preferences
+            Manage
           </button>
           <button
             type="button"
@@ -49,5 +45,3 @@ function CookieBanner({
     </div>
   );
 }
-
-export { CookieBanner };
