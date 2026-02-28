@@ -27,9 +27,9 @@ import type { Direction, Position } from "~/shared/types";
 
 ## Subdirectories
 
-| Directory            | Description                                     |
-| -------------------- | ----------------------------------------------- |
-| [Hooks](./hooks)     | Custom React hooks                              |
-| [Types](./types)     | TypeScript type definitions                     |
-| [Utilities](./utils) | Utility functions (cn, matrix operations)       |
-| [Lib](./lib)         | Third-party integrations (analytics, marketing) |
+| Directory                  | Description                                     |
+| -------------------------- | ----------------------------------------------- |
+| [Hooks](./hooks)           | Custom React hooks                              |
+| [Types](./types)           | TypeScript type definitions                     |
+| [Utilities](./utils/cn.md) | Utility functions (cn, matrix operations)       |
+| [Lib](./lib)               | Third-party integrations (analytics, marketing) |

@@ -97,4 +97,4 @@ trackAdImpression("banner_300x250", "Homepage Banner");
 
 ## Integration with Cookie Consent
 
-Both analytics and marketing are automatically enabled/disabled based on user cookie consent preferences. See [Cookie Consent API](../../cookie-consent) for more details.
+Both analytics and marketing are automatically enabled/disabled based on user cookie consent preferences. See [Cookie Consent API](../../api/cookie-consent) for more details.

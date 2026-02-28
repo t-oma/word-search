@@ -11,7 +11,7 @@ startPos: Position;
 endPos: Position;
 ```
 
-See [Position](../../../shared/types#position) for more details.
+See [Position](../../shared/types#position) for more details.
 
 ## Return:
 
@@ -19,7 +19,7 @@ See [Position](../../../shared/types#position) for more details.
 Position[]
 ```
 
-See [Position](../../../shared/types#position) for more details.
+See [Position](../../shared/types#position) for more details.
 
 ## Usage:
 
