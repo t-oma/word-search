@@ -1,18 +1,35 @@
+import { useEffect, useState } from "react";
+
 import clsx from "clsx";
 
 export type SwitchProps = {
-  onClick: () => void;
+  id?: string;
   isOn: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
 };
 
-export function Switch({ onClick, isOn }: SwitchProps) {
+export function Switch({ id, disabled, isOn: _isOn, onClick }: SwitchProps) {
+  const [isOn, setIsOn] = useState(_isOn);
+
+  useEffect(() => {
+    setIsOn(_isOn); // eslint-disable-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+  }, [_isOn]);
+
   return (
     <button
+      id={id}
       type="button"
-      onClick={onClick}
+      disabled={disabled}
+      role="switch"
+      onClick={() => {
+        onClick?.();
+        setIsOn(!isOn);
+      }}
       className={clsx(
         "relative h-6 w-11 rounded-full transition-colors",
-        isOn ? "bg-blue-600" : "bg-gray-300"
+        isOn ? "bg-blue-600" : "bg-gray-300",
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       )}
     >
       <span
