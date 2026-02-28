@@ -84,6 +84,20 @@ export default defineConfig({
                 },
               ],
             },
+            {
+              text: "Word Selection",
+              link: "/api/features/word-selection/",
+              items: [
+                {
+                  text: "useDraggableSelection()",
+                  link: "/api/features/word-selection/useDraggableSelection",
+                },
+                {
+                  text: "Helpers",
+                  link: "/api/features/word-selection/helpers",
+                },
+              ],
+            },
           ],
         },
         {
