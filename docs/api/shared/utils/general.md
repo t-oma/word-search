@@ -5,7 +5,7 @@
 A boolean value indicating whether the code is running in a browser environment.
 
 ```typescript
-import { isBrowser } from "~/shared/utils/utils";
+import { isBrowser } from "~/shared/utils";
 
 if (isBrowser) {
   console.log("Running in a browser environment");
@@ -17,7 +17,7 @@ if (isBrowser) {
 Returns a random letter from the alphabet.
 
 ```typescript
-import { getRandomLetter } from "~/shared/utils/utils";
+import { getRandomLetter } from "~/shared/utils";
 
 console.log(getRandomLetter()); // "A"
 ```
@@ -27,7 +27,7 @@ console.log(getRandomLetter()); // "A"
 Generates 2-dimensional array of letters.
 
 ```typescript
-import { gridLetters } from "~/shared/utils/utils";
+import { gridLetters } from "~/shared/utils";
 
 const letters = gridLetters(3);
 
@@ -39,7 +39,7 @@ console.log(letters); // [["A", "B", "C"], ["D", "E", "F"], ["G", "H", "I"]]
 Clamps a value between a minimum and maximum.
 
 ```typescript
-import { clamp } from "~/shared/utils/utils";
+import { clamp } from "~/shared/utils";
 
 console.log(clamp(5, 0, 10)); // 5
 console.log(clamp(-5, 0, 10)); // 0
@@ -51,7 +51,7 @@ console.log(clamp(15, 0, 10)); // 10
 Shuffles an array.
 
 ```typescript
-import { shuffle } from "~/shared/utils/utils";
+import { shuffle } from "~/shared/utils";
 
 const array = [1, 2, 3, 4, 5];
 const shuffled = shuffle(array);
@@ -64,7 +64,7 @@ console.log(shuffled); // [2, 1, 4, 3, 5]
 Capitalizes the first letter of a string.
 
 ```typescript
-import { capitalize } from "~/shared/utils/utils";
+import { capitalize } from "~/shared/utils";
 
 console.log(capitalize("hello")); // "Hello"
 ```
@@ -74,7 +74,7 @@ console.log(capitalize("hello")); // "Hello"
 Safely parses an integer from a string.
 
 ```typescript
-import { parseIntSafe } from "~/shared/utils/utils";
+import { parseIntSafe } from "~/shared/utils";
 
 console.log(parseIntSafe("5")); // 5
 console.log(parseIntSafe("5.5")); // null

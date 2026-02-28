@@ -9,8 +9,9 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Guide", link: "/guide/getting-started" },
-      { text: "API", link: "/api/analytics" },
+      { text: "Guide", link: "/guide/", activeMatch: "/guide/" },
+      { text: "FSD", link: "/fsd/", activeMatch: "/fsd/" },
+      { text: "API", link: "/api/analytics", activeMatch: "/api/" },
     ],
 
     sidebar: {
@@ -19,45 +20,59 @@ export default defineConfig({
           text: "Guide",
           collapsed: false,
           items: [
-            { text: "Getting Started", link: "/guide/getting-started" },
+            { text: "Getting Started", link: "/guide/" },
             { text: "Project Structure", link: "/guide/structure" },
             { text: "Commands", link: "/guide/commands" },
           ],
         },
+      ],
+      fsd: [
         {
-          text: "Shared",
+          text: "FSD",
           collapsed: false,
           items: [
-            { text: "Overview", link: "/guide/shared/overview" },
-            { text: "Hooks", link: "/guide/shared/hooks" },
-            { text: "Types", link: "/guide/shared/types" },
-            {
-              text: "Utilities",
-              items: [
-                { text: "cn", link: "/guide/shared/utils/cn" },
-                { text: "matrix", link: "/guide/shared/utils/matrix" },
-                { text: "general", link: "/guide/shared/utils/general" },
-              ],
-            },
+            { text: "Overview", link: "/fsd/" },
+            { text: "Shared", link: "/fsd/shared" },
+            { text: "Entities", link: "/fsd/entities" },
+          ],
+        },
+      ],
+      api: [
+        {
+          text: "Integrations",
+          collapsed: false,
+          items: [
+            { text: "Analytics", link: "/api/analytics" },
+            { text: "Marketing", link: "/api/marketing" },
+            { text: "Cookie Consent", link: "/api/cookie-consent" },
           ],
         },
         {
           text: "Entities",
           collapsed: false,
           items: [
-            { text: "Overview", link: "/guide/entities/overview" },
-            { text: "Game", link: "/guide/entities/game" },
-            { text: "Stats", link: "/guide/entities/stats" },
+            { text: "Overview", link: "/api/entities/overview" },
+            { text: "Game", link: "/api/entities/game" },
+            { text: "Stats", link: "/api/entities/stats" },
           ],
         },
-      ],
-      api: [
         {
-          text: "API",
+          text: "Shared",
+          collapsed: false,
           items: [
-            { text: "Analytics", link: "/api/analytics" },
-            { text: "Marketing", link: "/api/marketing" },
-            { text: "Cookie Consent", link: "/api/cookie-consent" },
+            { text: "Overview", link: "/api/shared/overview" },
+            { text: "Hooks", link: "/api/shared/hooks" },
+            { text: "Types", link: "/api/shared/types" },
+            {
+              text: "Utilities",
+              link: "/api/shared/utils/cn",
+              items: [
+                { text: "cn", link: "/api/shared/utils/cn" },
+                { text: "matrix", link: "/api/shared/utils/matrix" },
+                { text: "general", link: "/api/shared/utils/general" },
+              ],
+            },
+            { text: "Lib", link: "/api/shared/lib" },
           ],
         },
       ],

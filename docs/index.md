@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/getting-started
+      link: /guide/index
     - theme: alt
       text: View on GitHub
-      link: https://github.com/
+      link: https://github.com/t-oma/COP
 
 features:
   - title: 🎮 Interactive Gameplay

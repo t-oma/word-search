@@ -9,7 +9,7 @@ import {
   itemsAtPositions,
   mapDirection,
   previewVector,
-} from "~/shared/utils/matrix";
+} from "~/shared/utils";
 ```
 
 ## mapDirection
@@ -28,9 +28,15 @@ mapDirection(matrix, {
   startPos: { row: 0, col: 0 },
   dir: { dr: 1, dc: 1 }, // diagonal
   callback: (matrix, pos, index) => {
-    console.log(pos, matrix[pos.row][pos.col]);
+    console.log(matrix[pos.row][pos.col]);
   },
 });
+```
+
+Result:
+
+```typescript
+A E I
 ```
 
 ## insertLine
@@ -43,12 +49,15 @@ const result = insertLine(matrix, {
   startPos: { row: 0, col: 0 },
   dir: { dr: 0, dc: 1 }, // horizontal
 });
+```
 
-// Result:
-// {
-//   matrix: [["H", "E", "L", "L", "O", ...], ...],
-//   positions: [{row: 0, col: 0}, {row: 0, col: 1}, ...]
-// }
+Result:
+
+```typescript
+{
+  matrix: [["H", "E", "L", "L", "O", ...], ...],
+  positions: [{row: 0, col: 0}, {row: 0, col: 1}, ...]
+}
 ```
 
 ## previewVector
@@ -59,10 +68,19 @@ Preview positions that would be occupied by a line.
 const positions = previewVector(
   { row: 0, col: 0 },
   { dr: 0, dc: 1 }, // horizontal
-  5
+  4
 );
+```
 
-// Result: [{row: 0, col: 0}, {row: 0, col: 1}, {row: 0, col: 2}, {row: 0, col: 3}, {row: 0, col: 4}]
+Result:
+
+```typescript
+[
+  { row: 0, col: 0 },
+  { row: 0, col: 1 },
+  { row: 0, col: 2 },
+  { row: 0, col: 3 },
+];
 ```
 
 ## itemsAtPositions
@@ -70,9 +88,24 @@ const positions = previewVector(
 Extract items from specific positions in a matrix.
 
 ```typescript
+const matrix = [
+  ["A", "B", "C"],
+  ["D", "E", "F"],
+  ["G", "H", "I"],
+];
 const items = itemsAtPositions(matrix, [
   { row: 0, col: 0 },
-  { row: 0, col: 1 },
-  { row: 0, col: 2 },
+  { row: 1, col: 1 },
+  { row: 2, col: 2 },
 ]);
+```
+
+Result:
+
+```typescript
+[
+  ["A", empty, empty],
+  [empty, "E", empty],
+  [empty, empty, "I"],
+];
 ```

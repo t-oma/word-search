@@ -3,7 +3,7 @@
 A utility for merging Tailwind CSS classes with `clsx` and `tailwind-merge`.
 
 ```typescript
-import { cn } from "~/shared/utils/cn";
+import { cn } from "~/shared/utils";
 ```
 
 ## Features
