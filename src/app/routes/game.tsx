@@ -13,7 +13,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function loader({ params }: Route.LoaderArgs) {
+export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   return { game: games.find((g) => g.id === Number(params.id)) };
 }
 
