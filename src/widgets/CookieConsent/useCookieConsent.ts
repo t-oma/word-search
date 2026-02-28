@@ -1,8 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { analytics, marketing } from "~/shared/lib";
 import { COOKIE_KEY, DEFAULT_PREFERENCES, OPEN_SETTINGS_EVENT } from "./const";
 import type { CookiePreferences } from "./types";
+
+export type CookiePersistance = {
+  save: (prefs: CookiePreferences) => void;
+  get: () => CookiePreferences | null;
+  clear: () => void;
+};
+
+export interface UseCookieConsentProps {
+  initialPreferences?: CookiePreferences | null;
+  persistance?: CookiePersistance;
+}
 
 export function getPreferencesFromLocalStorage(): CookiePreferences | null {
   if (typeof window === "undefined") return null;
@@ -15,29 +26,44 @@ export function getPreferencesFromLocalStorage(): CookiePreferences | null {
   }
 }
 
-export function savePreferencesToLocalStorage(prefs: CookiePreferences): void {
+function savePreferencesToLocalStorage(prefs: CookiePreferences): void {
   localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
 }
 
-export function clearPreferencesFromLocalStorage(): void {
+function clearPreferencesFromLocalStorage(): void {
   localStorage.removeItem(COOKIE_KEY);
 }
 
-function useCookieConsent() {
-  const [showBanner, setShowBanner] = useState(false);
+export function useCookieConsent({
+  initialPreferences,
+  persistance = {
+    save: savePreferencesToLocalStorage,
+    get: getPreferencesFromLocalStorage,
+    clear: clearPreferencesFromLocalStorage,
+  },
+}: UseCookieConsentProps = {}) {
+  const [showBanner, setShowBanner] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [preferences, setPreferences] =
     useState<CookiePreferences>(DEFAULT_PREFERENCES);
 
+  const { save, get, clear } = useMemo(() => persistance, [persistance]);
+
   useEffect(() => {
-    const stored = getPreferencesFromLocalStorage();
+    if (initialPreferences) {
+      setPreferences(initialPreferences); // eslint-disable-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+      setShowBanner(false); // eslint-disable-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
+      return;
+    }
+
+    const stored = get();
     if (stored) {
       setPreferences(stored); // eslint-disable-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
       setShowBanner(false); // eslint-disable-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     } else {
       setShowBanner(true); // eslint-disable-line @eslint-react/hooks-extra/no-direct-set-state-in-use-effect
     }
-  }, []);
+  }, [initialPreferences, get]);
 
   useEffect(() => {
     const handleOpenSettings = () => {
@@ -66,7 +92,7 @@ function useCookieConsent() {
 
   const applyPreferences = (prefs: CookiePreferences) => {
     setPreferences(prefs);
-    savePreferencesToLocalStorage(prefs);
+    save(prefs);
 
     setShowBanner(false);
     setShowSettings(false);
@@ -104,7 +130,7 @@ function useCookieConsent() {
     setPreferences(DEFAULT_PREFERENCES);
     setShowBanner(true);
     setShowSettings(false);
-    clearPreferencesFromLocalStorage();
+    clear();
   };
 
   return {
@@ -128,5 +154,3 @@ function useCookieConsent() {
     },
   };
 }
-
-export { useCookieConsent };
