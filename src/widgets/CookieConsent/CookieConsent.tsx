@@ -1,5 +1,6 @@
+import { Switch } from "~/shared/ui";
 import { AppModal } from "../AppModal";
-import { CookieBanner } from "./CookieBanner";
+import { CookieConsentBody } from "./CookieConsentBody";
 import {
   CookieSettingsFooter,
   CookieSettingsHeader,
@@ -8,25 +9,54 @@ import {
 import { FloatingButton } from "./FloatingButton";
 import { useCookieConsent } from "./useCookieConsent";
 import type { ReactNode } from "react";
+import type { CookiePreferences } from "./types";
+import type { CookiePersistance } from "./useCookieConsent";
 
-interface CookieConsentProps {
+export type CookieConsentBodyVariant = "floating" | "banner";
+
+export type CookieConsentProps = {
   children: ReactNode;
-}
+  initialPreferences?: CookiePreferences | null;
+  variant?: CookieConsentBodyVariant;
+  renderBody?: (props: CookieBodyProps) => ReactNode;
+  persistance?: CookiePersistance;
+};
 
-export function CookieConsent({ children }: CookieConsentProps) {
+export type CookieBodyProps = {
+  handleDecline: () => void;
+  handleAcceptAll: () => void;
+  handleShowSettings: () => void;
+};
+
+export function CookieConsent({
+  children,
+  initialPreferences,
+  variant = "banner",
+  renderBody,
+  persistance,
+}: CookieConsentProps) {
   const { showBanner, showSettings, hasConsent, preferences, actions } =
-    useCookieConsent();
+    useCookieConsent({ initialPreferences, persistance });
 
   return (
     <>
       {children}
-      {showBanner && (
-        <CookieBanner
-          handleDecline={actions.decline}
-          handleAcceptAll={actions.acceptAll}
-          handleShowSettings={actions.showSettings}
-        />
-      )}
+      {renderBody &&
+        showBanner &&
+        renderBody({
+          handleDecline: actions.decline,
+          handleAcceptAll: actions.acceptAll,
+          handleShowSettings: actions.showSettings,
+        })}
+
+      <CookieConsentBody
+        visible={showBanner && !renderBody}
+        variant={variant}
+        handleDecline={actions.decline}
+        handleAcceptAll={actions.acceptAll}
+        handleShowSettings={actions.showSettings}
+      />
+
       {!showBanner && hasConsent && (
         <FloatingButton handleOpenSettings={actions.showSettings} />
       )}
@@ -47,38 +77,20 @@ export function CookieConsent({ children }: CookieConsentProps) {
             type="Analytics"
             description="Help us understand how visitors interact with our website"
           >
-            <button
-              type="button"
+            <Switch
               onClick={actions.toggleAnalytics}
-              className={`relative h-6 w-11 rounded-full transition-colors ${
-                preferences.analytics ? "bg-blue-600" : "bg-gray-300"
-              }`}
-            >
-              <span
-                className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition-transform ${
-                  preferences.analytics ? "translate-x-full" : ""
-                }`}
-              />
-            </button>
+              isOn={preferences.analytics}
+            />
           </CookieSettingsSection>
 
           <CookieSettingsSection
             type="Marketing"
             description="Personalize advertisements and measure their performance"
           >
-            <button
-              type="button"
+            <Switch
               onClick={actions.toggleMarketing}
-              className={`relative h-6 w-11 rounded-full transition-colors ${
-                preferences.marketing ? "bg-blue-600" : "bg-gray-300"
-              }`}
-            >
-              <span
-                className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white transition-transform ${
-                  preferences.marketing ? "translate-x-full" : ""
-                }`}
-              />
-            </button>
+              isOn={preferences.marketing}
+            />
           </CookieSettingsSection>
         </div>
 
