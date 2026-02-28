@@ -55,6 +55,14 @@ pnpm start
 | `pnpm lint`      | Run ESLint                   |
 | `pnpm typecheck` | Run TypeScript type checking |
 
+## Live Demo
+
+| Project       | URL                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------------------- |
+| Production    | [https://word-search-sandy.vercel.app](https://word-search-sandy.vercel.app)                   |
+| Documentation | [https://t-oma.github.io/word-search/docs](https://t-oma.github.io/word-search/docs)           |
+| Storybook     | [https://t-oma.github.io/word-search/storybook](https://t-oma.github.io/word-search/storybook) |
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
