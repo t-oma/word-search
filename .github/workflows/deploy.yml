@@ -44,13 +44,25 @@ jobs:
           mkdir -p build/client/docs
           cp -r docs/.vitepress/dist/* build/client/docs/
 
+      - name: Build Storybook
+        run: pnpm build-storybook
+
+      - name: Copy Storybook to build
+        run: |
+          mkdir -p build/client/storybook
+          cp -r storybook-static/* build/client/storybook/
+
       - name: Upload pages artifact
+        id: deployment
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./build/client
+          path: build/client/
 
   deploy:
     needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages

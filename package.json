@@ -4,7 +4,7 @@
   "type": "module",
   "homepage": "https://t-oma.github.io/word-search",
   "scripts": {
-    "build": "BASENAME_URL=/word-search/ react-router build",
+    "build": "BASENAME_URL=/word-search react-router build",
     "dev": "BASENAME_URL=/ react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
