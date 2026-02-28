@@ -7,15 +7,22 @@ import type {
   StatsState,
   StatsStore,
 } from "./stats-store-types";
+import type { RecentGame } from "./types";
 
-const getMostPlayedDifficulty = (
-  playedDifficulties: Map<Difficulty, number>
-) => {
-  if (playedDifficulties.size === 0) return "easy";
+const getMostPlayedDifficulty = (games: RecentGame[]) => {
+  if (games.length === 0) return "easy" as Difficulty;
 
-  const mostPlayedDifficulty = Array.from(playedDifficulties.entries())
-    .sort((a, b) => b[1] - a[1])
-    .shift();
+  const playedDifficulties = games.reduce(
+    (acc, cur) => {
+      acc[cur.difficulty] = (acc[cur.difficulty] ?? 0) + 1;
+      return acc;
+    },
+    {} as Record<Difficulty, number>
+  );
+
+  const mostPlayedDifficulty = (
+    Object.entries(playedDifficulties) as [Difficulty, number][]
+  ).sort((a, b) => b[1] - a[1])[0];
 
   return mostPlayedDifficulty?.[0] ?? "easy";
 };
@@ -23,7 +30,6 @@ const getMostPlayedDifficulty = (
 const defaultInitState: StatsState = {
   global: null,
   recentGames: [],
-  playedDifficulties: new Map(),
 };
 
 const useStatsStore = create<StatsStore>()(
@@ -58,29 +64,6 @@ const useStatsStore = create<StatsStore>()(
               (state.context.global.averageScore + newScore) / 2
             );
 
-            const nextPlayedDifficulties = new Map(
-              state.context.playedDifficulties
-            );
-            nextPlayedDifficulties.set(
-              params.difficulty,
-              (nextPlayedDifficulties.get(params.difficulty) ?? 0) + 1
-            );
-            state.context.playedDifficulties = nextPlayedDifficulties;
-
-            const newFavorite = getMostPlayedDifficulty(
-              state.context.playedDifficulties
-            );
-
-            if (
-              state.context.global.gamesPlayed === 1 ||
-              (state.context.playedDifficulties.get(newFavorite) ?? 0) >
-                (state.context.playedDifficulties.get(
-                  state.context.global.favoriteDifficulty
-                ) ?? 0)
-            ) {
-              state.context.global.favoriteDifficulty = newFavorite;
-            }
-
             state.context.global.totalTime += params.timeTaken;
 
             state.context.recentGames.push({
@@ -90,6 +73,10 @@ const useStatsStore = create<StatsStore>()(
               date: params.date,
               difficulty: params.difficulty,
             });
+
+            state.context.global.favoriteDifficulty = getMostPlayedDifficulty(
+              state.context.recentGames
+            );
           }),
       },
     })),
