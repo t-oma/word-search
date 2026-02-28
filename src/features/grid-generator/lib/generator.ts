@@ -165,7 +165,7 @@ type GenerateWordsProps = {
  *    "bird"
  *  ]
  * ```
- *
+ * @throws {Error} No words found for category and difficulty
  * @returns {string[]} generated words.
  */
 function generateWords({

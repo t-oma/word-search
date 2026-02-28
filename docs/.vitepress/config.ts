@@ -6,6 +6,10 @@ export default defineConfig({
   description:
     "A word search puzzle game built with React Router, TypeScript, and Tailwind CSS.",
   themeConfig: {
+    search: {
+      provider: "local",
+    },
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
@@ -15,7 +19,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      guide: [
+      "/guide/": [
         {
           text: "Guide",
           collapsed: false,
@@ -26,7 +30,8 @@ export default defineConfig({
           ],
         },
       ],
-      fsd: [
+
+      "/fsd/": [
         {
           text: "FSD",
           collapsed: false,
@@ -37,9 +42,52 @@ export default defineConfig({
           ],
         },
       ],
-      api: [
+
+      "/api/": [
         {
-          text: "Integrations",
+          text: "Features",
+          collapsed: false,
+          items: [
+            {
+              text: "Grid Generator",
+              link: "/api/features/grid-generator/",
+              items: [
+                {
+                  text: "useGenerator()",
+                  link: "/api/features/grid-generator/useGenerator",
+                },
+                {
+                  text: "Generators",
+                  items: [
+                    {
+                      text: "generateGridLetters()",
+                      link: "/api/features/grid-generator/generators/generateGridLetters",
+                    },
+                    {
+                      text: "generateWords()",
+                      link: "/api/features/grid-generator/generators/generateWords",
+                    },
+                  ],
+                },
+                {
+                  text: "Placement",
+                  items: [
+                    {
+                      text: "tryPlaceWord()",
+                      link: "/api/features/grid-generator/placement/tryPlaceWord",
+                    },
+                  ],
+                },
+                {
+                  text: "Helpers",
+                  link: "/api/features/grid-generator/helpers",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          text: "Entities",
           collapsed: false,
           items: [
             { text: "Analytics", link: "/api/analytics" },
