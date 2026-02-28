@@ -7,6 +7,7 @@
 - **Type check**: `react-router typegen && tsc`
 - **Lint**: `pnpm lint`
 - **Test**: No test framework configured
+- **License report**: `pnpm licenses-report`
 
 ## Code Style
 

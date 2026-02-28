@@ -5,3 +5,8 @@
 # React Router
 /.react-router/
 /build/
+/docs/.vitepress/cache/
+/docs/.vitepress/dist/
+
+*storybook.log
+storybook-static

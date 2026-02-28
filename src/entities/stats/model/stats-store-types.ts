@@ -4,16 +4,16 @@ import type { RecentGame, Stats } from "./types";
 type StatsState = {
   global: Stats | null;
   recentGames: RecentGame[];
-  playedDifficulties: Map<Difficulty, number>;
 };
 
 type StatsActions = {
-  actions: {
-    registerGame: (params: RegisterGameParams) => void;
-  };
+  registerGame: (params: RegisterGameParams) => void;
 };
 
-type StatsStore = { context: StatsState } & StatsActions;
+type StatsStore = {
+  context: StatsState;
+  actions: StatsActions;
+};
 
 type RegisterGameParams = {
   wordsFound: number;

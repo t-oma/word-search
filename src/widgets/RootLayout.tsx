@@ -1,4 +1,5 @@
-import { AppFooter, AppHeader } from "~/widgets";
+import { AppFooter } from "./AppFooter";
+import { AppHeader } from "./AppHeader";
 
 type RootLayoutProps = {
   children: React.ReactNode;

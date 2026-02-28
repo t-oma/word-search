@@ -141,7 +141,7 @@ function AppModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
       <div
         ref={modalRef}
-        className="rounded-md bg-white p-4 shadow"
+        className="max-w-md rounded-md bg-white p-4 shadow md:max-w-lg lg:max-w-xl"
         tabIndex={-1}
         role="dialog"
         aria-modal="true"
