@@ -11,13 +11,11 @@ class AnalyticsTracker {
 
   enable() {
     this.isEnabled = true;
-    console.log("[Analytics] Enabled");
     this.trackPageView();
   }
 
   disable() {
     this.isEnabled = false;
-    console.log("[Analytics] Disabled");
   }
 
   trackPageView() {

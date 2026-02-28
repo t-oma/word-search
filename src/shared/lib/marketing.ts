@@ -11,12 +11,10 @@ class MarketingTracker {
 
   enable() {
     this.isEnabled = true;
-    console.log("[Marketing] Enabled");
   }
 
   disable() {
     this.isEnabled = false;
-    console.log("[Marketing] Disabled");
   }
 
   trackCampaign(campaign: MarketingCampaign) {
